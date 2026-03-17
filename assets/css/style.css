@@ -1,0 +1,144 @@
+/* 
+    Dream Drive Custom Styles
+*/
+
+:root {
+    --text-primary: #111111;
+    --text-muted: #666666;
+    --bg-light: #f9f9f9;
+    --pill-bg: #f3f3f3;
+    --dark-btn-bg: #1e1e1e;
+    --font-family-base: 'Inter', sans-serif;
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--text-primary);
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Navbar Tuning */
+.custom-navbar {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav-pill-container {
+    background-color: var(--pill-bg);
+    border-radius: 50px;
+    padding: 0.25rem 0.5rem;
+}
+
+.nav-pill-container .nav-link {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem !important;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.nav-pill-container .nav-link:hover {
+    color: #000;
+    opacity: 0.8;
+}
+
+.nav-pill-container .nav-link.active {
+    background-color: var(--dark-btn-bg);
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.search-icon {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    background-color: var(--pill-bg);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.search-icon:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+.custom-btn-dark {
+    background-color: var(--dark-btn-bg);
+    border-color: var(--dark-btn-bg);
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.custom-btn-dark:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.custom-btn-outline {
+    border-color: rgba(0,0,0,0.1);
+    color: var(--text-primary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.custom-btn-outline:hover {
+    background-color: var(--pill-bg);
+    border-color: rgba(0,0,0,0.2);
+    color: #000;
+}
+
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #000;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-image-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: -30px; /* pull up the car slightly */
+}
+
+/* Card Styling */
+.car-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+}
+
+.car-card .card-body {
+    padding: 1.5rem;
+}
