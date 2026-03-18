@@ -36,7 +36,8 @@ class Booking {
     }
 
     public function readByAgency($agency_id) {
-        $query = "SELECT b.id, b.start_date, b.days, c.model, c.vehicle_number, u.name as customer_name, u.username as customer_username
+        $query = "SELECT b.id, b.start_date, b.days, c.model, c.vehicle_number, c.rent_per_day, u.name as customer_name, u.username as customer_username,
+                         (b.days * c.rent_per_day) as total_amount
                   FROM " . $this->table_name . " b
                   JOIN cars c ON b.car_id = c.id
                   JOIN users u ON b.customer_id = u.id
@@ -45,6 +46,22 @@ class Booking {
 
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $agency_id);
+        $stmt->execute();
+        return $stmt;
+    }
+
+    public function readByCustomer($customer_id) {
+        $query = "SELECT b.id, b.start_date, b.days, c.model, c.vehicle_number, c.rent_per_day, c.image_path,
+                         u.name as agency_name,
+                         (b.days * c.rent_per_day) as total_amount
+                  FROM " . $this->table_name . " b
+                  JOIN cars c ON b.car_id = c.id
+                  JOIN users u ON c.agency_id = u.id
+                  WHERE b.customer_id = ?
+                  ORDER BY b.id DESC";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $customer_id);
         $stmt->execute();
         return $stmt;
     }

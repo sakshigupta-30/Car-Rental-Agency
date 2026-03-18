@@ -22,12 +22,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'agency') {
                             <th scope="col" class="py-3 border-bottom-0">Automobile Model</th>
                             <th scope="col" class="py-3 border-bottom-0">Vehicle No.</th>
                             <th scope="col" class="py-3 border-bottom-0">Start Date</th>
-                            <th scope="col" class="py-3 px-4 border-bottom-0 rounded-top-end">Days</th>
+                            <th scope="col" class="py-3 border-bottom-0">Days</th>
+                            <th scope="col" class="py-3 px-4 border-bottom-0 rounded-top-end">Total Amount</th>
                         </tr>
                     </thead>
                     <tbody id="bookings-table-body">
                         <tr>
-                            <td colspan="6" class="text-center py-5">
+                            <td colspan="7" class="text-center py-5">
                                 <div class="spinner-border text-dark" role="status">
                                     <span class="visually-hidden">Loading...</span>
                                 </div>
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         tbody.innerHTML = '';
         
         if (data.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="6" class="text-center py-4 text-muted">No bookings found for your cars yet.</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="7" class="text-center py-4 text-muted">No bookings found for your cars yet.</td></tr>';
             return;
         }
 
@@ -66,14 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     <td class="py-3">${booking.model}</td>
                     <td class="py-3"><span class="badge bg-light text-dark border">${booking.vehicle_number}</span></td>
                     <td class="py-3">${booking.start_date}</td>
-                    <td class="px-4 py-3 fw-semibold">${booking.days} Day(s)</td>
+                    <td class="py-3 fw-semibold">${booking.days} Day(s)</td>
+                    <td class="px-4 py-3 fw-bold text-success">$${parseFloat(booking.total_amount).toFixed(2)}</td>
                 </tr>
             `;
         });
     })
     .catch(err => {
         console.error('Error fetching bookings:', err);
-        document.getElementById('bookings-table-body').innerHTML = '<tr><td colspan="6" class="text-center py-4 text-danger">Failed to load bookings.</td></tr>';
+        document.getElementById('bookings-table-body').innerHTML = '<tr><td colspan="7" class="text-center py-4 text-danger">Failed to load bookings.</td></tr>';
     });
 });
 </script>
