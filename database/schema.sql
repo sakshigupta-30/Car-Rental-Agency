@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS cars (
     vehicle_number VARCHAR(50) UNIQUE NOT NULL,
     seating_capacity INT NOT NULL,
     rent_per_day DECIMAL(10, 2) NOT NULL,
+    image_path VARCHAR(255) DEFAULT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (agency_id) REFERENCES users(id) ON DELETE CASCADE
 );

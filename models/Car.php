@@ -27,7 +27,9 @@ class Car {
         $this->vehicle_number = htmlspecialchars(strip_tags($this->vehicle_number));
         $this->seating_capacity = htmlspecialchars(strip_tags($this->seating_capacity));
         $this->rent_per_day = htmlspecialchars(strip_tags($this->rent_per_day));
-        $this->image_path = htmlspecialchars(strip_tags($this->image_path));
+        if ($this->image_path !== null) {
+            $this->image_path = htmlspecialchars(strip_tags($this->image_path));
+        }
 
         // bind values
         $stmt->bindParam(":agency_id", $this->agency_id);
@@ -89,7 +91,9 @@ class Car {
         $this->vehicle_number = htmlspecialchars(strip_tags($this->vehicle_number));
         $this->seating_capacity = htmlspecialchars(strip_tags($this->seating_capacity));
         $this->rent_per_day = htmlspecialchars(strip_tags($this->rent_per_day));
-        $this->image_path = htmlspecialchars(strip_tags($this->image_path));
+        if ($this->image_path !== null) {
+            $this->image_path = htmlspecialchars(strip_tags($this->image_path));
+        }
         $this->id = htmlspecialchars(strip_tags($this->id));
         $this->agency_id = htmlspecialchars(strip_tags($this->agency_id));
 
