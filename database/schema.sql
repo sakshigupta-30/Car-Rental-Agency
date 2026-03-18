@@ -1,6 +1,6 @@
--- Create Database
-CREATE DATABASE IF NOT EXISTS car_rental_db;
-USE car_rental_db;
+-- Create Database (Disabled for InfinityFree)
+-- CREATE DATABASE IF NOT EXISTS car_rental_db;
+-- USE car_rental_db;
 
 -- Users Table (Customers & Agencies)
 CREATE TABLE IF NOT EXISTS users (
